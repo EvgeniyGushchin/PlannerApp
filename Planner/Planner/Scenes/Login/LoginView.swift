@@ -12,26 +12,29 @@ struct LoginView: View {
     
     @EnvironmentObject var viewModel: LoginViewModel 
     
-    @State private var username: String = ""
-    @State private var password: String = ""
-    
     var body: some View {
         ZStack {
             VStack {
                 Text("Planner")
                     .foregroundColor(.blue)
                     .font(.headline)
-                TextField("username", text: $username)
+                TextField("username", text: Binding<String>(
+                    get: { self.viewModel.username },
+                    set: { self.viewModel.username = $0 }
+                ))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
-                SecureField("password", text: $password)
+                SecureField("password", text: Binding<String>(
+                    get: { self.viewModel.password },
+                    set: { self.viewModel.password = $0 }
+                ))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 RoundedButton(title: "Login", action: {
-                    print("\(self.username)\n\(self.password)")
-                    self.viewModel.login(username: self.username, password: self.password)
+                    self.viewModel.login()
                 })
                     .padding(.top, 20)
+                    .disabled(!viewModel.isEnabled)
             }
             .padding()
             ActivityIndicator(shouldAnimate: viewModel.isRequesting)
