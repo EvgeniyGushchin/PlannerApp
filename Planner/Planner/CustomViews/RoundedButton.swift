@@ -11,6 +11,7 @@ import SwiftUI
 struct RoundedButton: View {
     
     let title: String
+    let color: Color
     let action: (() -> Void)
     
     var body: some View {
@@ -24,7 +25,7 @@ struct RoundedButton: View {
             }
         }
         .padding(.vertical, 10.0)
-        .background(Color.blue)
+        .background(color)
         .cornerRadius(4.0)
         .padding(.horizontal, 10)
     }
@@ -32,6 +33,6 @@ struct RoundedButton: View {
 
 struct RoundedButton_Previews: PreviewProvider {
     static var previews: some View {
-        RoundedButton(title: "Save", action: {})
+        RoundedButton(title: "Save", color: .blue, action: {})
     }
 }

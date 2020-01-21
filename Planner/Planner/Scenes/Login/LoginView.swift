@@ -30,16 +30,21 @@ struct LoginView: View {
                     set: { self.viewModel.password = $0 }
                 ))
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                RoundedButton(title: "Login", action: {
+                RoundedButton(title: "Login", color: buttonColor, action: {
                     self.viewModel.login()
-                })
+                    })
                     .padding(.top, 20)
                     .disabled(!viewModel.isEnabled)
+                
             }
             .padding()
             ActivityIndicator(shouldAnimate: viewModel.isRequesting)
         }
         .modifier(DismissingKeyboard())
+    }
+    
+    var buttonColor: Color {
+        return viewModel.isEnabled ? .blue : .gray
     }
 }
 
