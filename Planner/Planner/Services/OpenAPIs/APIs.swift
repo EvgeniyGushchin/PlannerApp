@@ -7,7 +7,7 @@
 import Foundation
 
 open class OpenAPIClientAPI {
-    public static var basePath = "https://rt-stg.thumbtack.lo/api-v1"
+    public static var basePath = "https://planner.thumbtack.net/api-v1"
     public static var credential: URLCredential?
     public static var customHeaders: [String:String] = [:]
     public static var requestBuilderFactory: RequestBuilderFactory = AlamofireRequestBuilderFactory()

@@ -11,15 +11,18 @@ import Combine
 
 final class LoginViewModel: ObservableObject {
     
+    let authService: AuthServiceProtocol
+    
     @Published private(set) var isRequesting = false
-    @Published private(set) var isEnabled: Bool = false
+    @Published private(set) var isEnabled = false
     
     @Published var username = ""
     @Published var password = ""
     
     private var worker: AnyCancellable? = nil
     
-    init() {
+    init(authenticationService: AuthServiceProtocol) {
+        self.authService = authenticationService
         worker = Publishers.CombineLatest($password, $username)
             .map({ (username, password) -> Bool in
                 !username.isEmpty && !password.isEmpty
@@ -30,19 +33,21 @@ final class LoginViewModel: ObservableObject {
     }
     
     func login() {
-        login(username: username, password: password)
+        isRequesting = true
+        authService.login(username: username, password: password) { [weak self] result in
+            self?.isRequesting = false
+            switch result {
+            case .success(_):
+                return
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+        }
     }
     
-    func login(username: String, password: String) {
-        
-        isRequesting = true
-        let credentials = InlineObject(username: username, password: password)
-        
-        DefaultAPI.login(inlineObject: credentials) { (user, error) in
-            self.isRequesting = false
-            
-            //TO DO: save token
-        }
+    func handleError(error: AuthError) {
+        print(error)
+        // TO DO: handle error
     }
     
 }
