@@ -11,7 +11,7 @@ import Combine
 
 final class LoginViewModel: ObservableObject {
     
-    let authService: AuthServiceProtocol
+    let authService: AuthService
     
     @Published private(set) var isRequesting = false
     @Published private(set) var isEnabled = false
@@ -21,7 +21,7 @@ final class LoginViewModel: ObservableObject {
     
     private var worker: AnyCancellable? = nil
     
-    init(authenticationService: AuthServiceProtocol) {
+    init(authenticationService: AuthService) {
         self.authService = authenticationService
         worker = Publishers.CombineLatest($password, $username)
             .map({ (username, password) -> Bool in

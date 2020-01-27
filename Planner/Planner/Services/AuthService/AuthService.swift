@@ -14,14 +14,26 @@ enum AuthError: Error {
     case keychainError
 }
 
+/*
+ 
+ How to make protocol with @Published properties????
+ 
 protocol AuthServiceProtocol {
     
     typealias LoginResult = (Result<Bool, AuthError>) -> ()
     
+    var isAuthorized: Bool { get }
+    
     func login(username: String, password: String, completion: LoginResult?)
-}
 
-class AuthService: ObservableObject, AuthServiceProtocol {
+}
+ */
+    
+class AuthService: ObservableObject {
+    
+    private let key = "token"
+    
+    typealias LoginResult = (Result<Bool, AuthError>) -> ()
     
     @Published private(set) var isAuthorized = false
     
@@ -40,7 +52,7 @@ class AuthService: ObservableObject, AuthServiceProtocol {
                 completion?(.failure(.authenticationFailed))
                 return
             }
-            let saveSuccessful: Bool = KeychainWrapper.standard.set(token, forKey: "token")
+            let saveSuccessful: Bool = KeychainWrapper.standard.set(token, forKey: self.key)
             if saveSuccessful {
                 self.isAuthorized = true
                 completion?(.success(true))
@@ -49,4 +61,10 @@ class AuthService: ObservableObject, AuthServiceProtocol {
             }
         }
     }
+    
+    func logout() {
+        KeychainWrapper.standard.removeObject(forKey: key)
+        isAuthorized = false
+    }
+        
 }

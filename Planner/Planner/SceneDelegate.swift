@@ -12,17 +12,13 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    
+    let authService = AuthService()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-  
-        
         // Create the SwiftUI view that provides the window contents.
-        let loginVM = LoginViewModel(authenticationService: AuthService())
-        let contentView = LoginView().environmentObject(loginVM)
         
-        // Use a UIHostingController as window root view controller.
+        let contentView = AppRootView().environmentObject(authService)
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)
