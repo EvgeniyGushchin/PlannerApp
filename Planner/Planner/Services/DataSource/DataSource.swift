@@ -13,13 +13,17 @@ enum DataError: Error {
     case employeesLoadFailed
 }
 
-class DataSource: ObservableObject {
-    
-    enum LeftStatus: String {
-        case working = "no"
-        case away = "any"
-        case any = "all"
-    }
+enum LeftStatus: String {
+    case working = "no"
+    case away = "any"
+    case any = "all"
+}
+
+protocol DataSourceProtocol {
+    func loadEmployeesList(left: LeftStatus, completion: ((Result<[Employee], Error>) -> Void)?)
+}
+
+class SimpleDataSource: DataSourceProtocol {
     
     let authToken: String
     
@@ -28,9 +32,8 @@ class DataSource: ObservableObject {
     }
     
     func loadEmployeesList(left: LeftStatus = .working, completion: ((Result<[Employee], Error>) -> Void)?) {
-        
         DefaultAPI.employees(
-            authToken: authToken,
+            authorization: authToken,
             status: "active",
             _left: "no") { (list, error) in
                 guard let emlpoyees = list else {

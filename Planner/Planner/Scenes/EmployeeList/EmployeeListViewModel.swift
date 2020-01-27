@@ -12,21 +12,34 @@ import Foundation
 final class EmployeeListViewModel: ObservableObject {
     
     let authService: AuthService
+    let dataSource: DataSourceProtocol
     
     @Published private(set) var isRequesting = false
+    @Published private(set) var employees: [Employee] = []
     
-    init(authenticationService: AuthService) {
+    @Published var username = ""
+    
+    init(authenticationService: AuthService, dataSource: DataSourceProtocol) {
         self.authService = authenticationService
-//        worker = Publishers.CombineLatest($password, $username)
-//            .map({ (username, password) -> Bool in
-//                !username.isEmpty && !password.isEmpty
-//            })
-//            .sink { enabled in
-//                self.isEnabled = enabled
-//        }
+        self.dataSource = dataSource
     }
     
     func loadEmployees() {
-        
+        isRequesting = true
+        dataSource.loadEmployeesList(left: .working) { [weak self] result in
+            self?.isRequesting = false
+            switch result {
+            case .success(let employees):
+                self?.employees = employees
+                return
+            case .failure(let error):
+                self?.handleError(error: error)
+            }
+        }
+    }
+    
+    func handleError(error: Error) {
+        print(error)
+        // TO DO: handle error
     }
 }

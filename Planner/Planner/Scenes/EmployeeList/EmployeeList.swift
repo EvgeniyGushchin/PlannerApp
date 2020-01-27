@@ -11,6 +11,7 @@ import SwiftUI
 struct EmployeeList: View {
     
     @EnvironmentObject var authService: AuthService
+    @EnvironmentObject var viewModel: EmployeeListViewModel
     
     var body: some View {
         VStack {
@@ -26,6 +27,8 @@ struct EmployeeList: View {
                     Spacer()
                 }
             }
+        }.onAppear {
+            self.viewModel.loadEmployees()
         }
     }
 }
