@@ -9,9 +9,9 @@ import Foundation
 
 
 
-public struct Employee: Codable {
+public struct Employee: Codable, Identifiable {
 
-    public var id: Int?
+    public var id: Int
     public var firstName: String?
     public var lastName: String?
     public var fullName: String?
@@ -27,7 +27,7 @@ public struct Employee: Codable {
     public var employeeTitle: EmployeeTitle?
     public var group: Group?
 
-    public init(id: Int?, firstName: String?, lastName: String?, fullName: String?, email: String?, skype: String?, phoneNumber: String?, isActive: Bool?, isActiveEmployee: Bool?, dateOfBirth: String?, reportsTo: ReportsTo?, employeeLocation: EmployeeLocation?, employeeDepartment: EmployeeDepartment?, employeeTitle: EmployeeTitle?, group: Group?) {
+    public init(id: Int, firstName: String?, lastName: String?, fullName: String?, email: String?, skype: String?, phoneNumber: String?, isActive: Bool?, isActiveEmployee: Bool?, dateOfBirth: String?, reportsTo: ReportsTo?, employeeLocation: EmployeeLocation?, employeeDepartment: EmployeeDepartment?, employeeTitle: EmployeeTitle?, group: Group?) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName

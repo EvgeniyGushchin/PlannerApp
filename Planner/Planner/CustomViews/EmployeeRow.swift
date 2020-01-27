@@ -25,7 +25,7 @@ struct EmployeeRow: View {
             }
             Spacer()
         }
-        .padding()
+//        .padding()
     }
 }
 

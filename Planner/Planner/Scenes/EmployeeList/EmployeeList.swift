@@ -17,7 +17,9 @@ struct EmployeeList: View {
         ZStack {
             NavigationView {
                 VStack {
-                    Text("Hello, World!")
+                    List(viewModel.employees) { employee in
+                        EmployeeRow(employee: employee)
+                    }
                     Button(action: {
                         self.authService.logout()
                     }) {
