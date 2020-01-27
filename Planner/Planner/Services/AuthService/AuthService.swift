@@ -32,6 +32,7 @@ protocol AuthServiceProtocol {
 class AuthService: ObservableObject {
     
     private let key = "token"
+    private(set) var token = ""
     
     typealias LoginResult = (Result<Bool, AuthError>) -> ()
     
@@ -41,7 +42,8 @@ class AuthService: ObservableObject {
         guard let token = KeychainWrapper.standard.string(forKey: "token") else {
             return
         }
-        isAuthorized = true
+        self.token = "Token \(token)"
+        self.isAuthorized = true
     }
     
     func login(username: String, password: String, completion: LoginResult?) {
@@ -54,6 +56,7 @@ class AuthService: ObservableObject {
             }
             let saveSuccessful: Bool = KeychainWrapper.standard.set(token, forKey: self.key)
             if saveSuccessful {
+                self.token = "Token \(token)"
                 self.isAuthorized = true
                 completion?(.success(true))
             } else {
