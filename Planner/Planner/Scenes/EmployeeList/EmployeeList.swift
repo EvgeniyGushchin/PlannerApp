@@ -14,19 +14,25 @@ struct EmployeeList: View {
     @EnvironmentObject var viewModel: EmployeeListViewModel
     
     var body: some View {
-        VStack {
-            Text("Hello, World!")
-            Button(action: {
-                self.authService.logout()
-            }) {
-                HStack {
-                    Spacer()
-                    Text("LOGOUT")
-                        .font(.headline)
-                        .foregroundColor(Color.blue)
-                    Spacer()
+        ZStack {
+            NavigationView {
+                VStack {
+                    Text("Hello, World!")
+                    Button(action: {
+                        self.authService.logout()
+                    }) {
+                        HStack {
+                            Spacer()
+                            Text("LOGOUT")
+                                .font(.headline)
+                                .foregroundColor(Color.blue)
+                            Spacer()
+                        }
+                    }
                 }
+                .padding()
             }
+            ActivityIndicator(shouldAnimate: viewModel.isRequesting)
         }.onAppear {
             self.viewModel.loadEmployees()
         }
