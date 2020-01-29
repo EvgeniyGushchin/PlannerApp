@@ -17,7 +17,7 @@ struct EmployeeRow: View {
             Image("avatar")
                 .resizable()
                 .frame(width: 60, height: 60)
-            VStack {
+            VStack(alignment: .leading, spacing: 7) {
                 Text(employee.fullName ?? "")
                     .font(.headline)
                 Text(employee.group?.name ?? "")
@@ -25,7 +25,6 @@ struct EmployeeRow: View {
             }
             Spacer()
         }
-//        .padding()
     }
 }
 
