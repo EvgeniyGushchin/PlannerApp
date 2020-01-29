@@ -18,21 +18,26 @@ struct EmployeeList: View {
             NavigationView {
                 VStack {
                     List(viewModel.employees) { employee in
-                        EmployeeRow(employee: employee)
+                        NavigationLink(
+                            destination: EmployeeDetail(
+                                viewModel: EmployeeDetailViewModel(employee: employee)
+                        )) {
+                            EmployeeRow(employee: employee)
+                        }
                     }
                     Button(action: {
                         self.authService.logout()
                     }) {
                         HStack {
                             Spacer()
-                            Text("LOGOUT")
+                            Text("Logout")
                                 .font(.headline)
                                 .foregroundColor(Color.blue)
                             Spacer()
                         }
                     }
                 }
-                .padding()
+                .navigationBarTitle(Text("Employees"))
             }
             ActivityIndicator(shouldAnimate: viewModel.isRequesting)
         }.onAppear {

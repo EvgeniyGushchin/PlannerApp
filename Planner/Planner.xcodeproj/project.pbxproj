@@ -45,6 +45,10 @@
 		65C3BBF623DEAC7D00F35F2B /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BBF523DEAC7D00F35F2B /* DataSource.swift */; };
 		65C3BBF823DEB1CC00F35F2B /* EmployeeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BBF723DEB1CC00F35F2B /* EmployeeListViewModel.swift */; };
 		65C3BBFA23DEBB5A00F35F2B /* EmployeeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BBF923DEBB5A00F35F2B /* EmployeeRow.swift */; };
+		65C3BBFD23DEF8B000F35F2B /* EmployeeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BBFC23DEF8B000F35F2B /* EmployeeDetail.swift */; };
+		65C3BBFF23DEFC9E00F35F2B /* PropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BBFE23DEFC9E00F35F2B /* PropertyView.swift */; };
+		65C3BC0123DF01D200F35F2B /* ClickablePropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BC0023DF01D200F35F2B /* ClickablePropertyView.swift */; };
+		65C3BC0323DF036E00F35F2B /* EmployeeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BC0223DF036E00F35F2B /* EmployeeDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +91,10 @@
 		65C3BBF523DEAC7D00F35F2B /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		65C3BBF723DEB1CC00F35F2B /* EmployeeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewModel.swift; sourceTree = "<group>"; };
 		65C3BBF923DEBB5A00F35F2B /* EmployeeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeRow.swift; sourceTree = "<group>"; };
+		65C3BBFC23DEF8B000F35F2B /* EmployeeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetail.swift; sourceTree = "<group>"; };
+		65C3BBFE23DEFC9E00F35F2B /* PropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyView.swift; sourceTree = "<group>"; };
+		65C3BC0023DF01D200F35F2B /* ClickablePropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickablePropertyView.swift; sourceTree = "<group>"; };
+		65C3BC0223DF036E00F35F2B /* EmployeeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailViewModel.swift; sourceTree = "<group>"; };
 		6776614C4E6FD2AE2A53DA11 /* Pods-Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planner.debug.xcconfig"; path = "Target Support Files/Pods-Planner/Pods-Planner.debug.xcconfig"; sourceTree = "<group>"; };
 		994251BC82E5C5ADF0636A3D /* Pods-Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planner.release.xcconfig"; path = "Target Support Files/Pods-Planner/Pods-Planner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,6 +231,8 @@
 				650A95C823D6ECB600E93768 /* ActivityIndicator.swift */,
 				650A95CA23D74D2F00E93768 /* DismissingKeyboard.swift */,
 				65C3BBF923DEBB5A00F35F2B /* EmployeeRow.swift */,
+				65C3BBFE23DEFC9E00F35F2B /* PropertyView.swift */,
+				65C3BC0023DF01D200F35F2B /* ClickablePropertyView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -230,6 +240,7 @@
 		656DE25323D5E9BC00D4411D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				65C3BBFB23DEF88600F35F2B /* EmployeeDetail */,
 				656B325023D9BE6300170268 /* EmployeeList */,
 				656DE25423D5E9E800D4411D /* Login */,
 				656B325323D9D65300170268 /* AppRootView.swift */,
@@ -252,6 +263,15 @@
 				65C3BBF523DEAC7D00F35F2B /* DataSource.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		65C3BBFB23DEF88600F35F2B /* EmployeeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				65C3BBFC23DEF8B000F35F2B /* EmployeeDetail.swift */,
+				65C3BC0223DF036E00F35F2B /* EmployeeDetailViewModel.swift */,
+			);
+			path = EmployeeDetail;
 			sourceTree = "<group>";
 		};
 		E303B0B4B5E66E9D5E41AFEE /* Pods */ = {
@@ -400,7 +420,9 @@
 				656DE23923D56BD300D4411D /* APIHelper.swift in Sources */,
 				65C3BBFA23DEBB5A00F35F2B /* EmployeeRow.swift in Sources */,
 				656DE23C23D56BD300D4411D /* CodableHelper.swift in Sources */,
+				65C3BC0323DF036E00F35F2B /* EmployeeDetailViewModel.swift in Sources */,
 				656DE23F23D56BD300D4411D /* EmployeeTitle.swift in Sources */,
+				65C3BC0123DF01D200F35F2B /* ClickablePropertyView.swift in Sources */,
 				656DE24523D56BD300D4411D /* InlineObject.swift in Sources */,
 				656B325423D9D65300170268 /* AppRootView.swift in Sources */,
 				650A95C923D6ECB600E93768 /* ActivityIndicator.swift in Sources */,
@@ -423,10 +445,12 @@
 				656DE24923D56BD300D4411D /* Extensions.swift in Sources */,
 				656B325223D9BE7B00170268 /* EmployeeList.swift in Sources */,
 				656DE23E23D56BD300D4411D /* APIs.swift in Sources */,
+				65C3BBFF23DEFC9E00F35F2B /* PropertyView.swift in Sources */,
 				650A95CB23D74D2F00E93768 /* DismissingKeyboard.swift in Sources */,
 				656DE25223D577BA00D4411D /* RoundedButton.swift in Sources */,
 				656DE24823D56BD300D4411D /* Skill.swift in Sources */,
 				656DE24C23D56BD300D4411D /* Configuration.swift in Sources */,
+				65C3BBFD23DEF8B000F35F2B /* EmployeeDetail.swift in Sources */,
 				656DE24423D56BD300D4411D /* Employee.swift in Sources */,
 				65C3BBF823DEB1CC00F35F2B /* EmployeeListViewModel.swift in Sources */,
 				656DE23A23D56BD300D4411D /* AlamofireImplementations.swift in Sources */,
