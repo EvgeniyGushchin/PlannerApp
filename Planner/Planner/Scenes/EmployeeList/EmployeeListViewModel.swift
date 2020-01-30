@@ -16,11 +16,10 @@ final class EmployeeListViewModel: ObservableObject {
     
     @Published private(set) var isRequesting = false
     @Published private(set) var employees: [Employee] = []
-    
+    @Published private var originalEmployees: [Employee] = []
     @Published var username = ""
     
     private var worker: AnyCancellable? = nil
-    @Published private var originalEmployees: [Employee] = []
     
     init(authenticationService: AuthService, dataSource: DataSourceProtocol) {
         self.authService = authenticationService
@@ -33,7 +32,6 @@ final class EmployeeListViewModel: ObservableObject {
                 }
                 strongSelf.employees = strongSelf.filterEmployeesBy(username: searchname, employees: employees)
             })
-            
     }
     
     func loadEmployees() {

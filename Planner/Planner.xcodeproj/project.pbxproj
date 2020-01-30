@@ -42,6 +42,10 @@
 		656DE25223D577BA00D4411D /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656DE25123D577BA00D4411D /* RoundedButton.swift */; };
 		656DE25623D5EA1700D4411D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656DE25523D5EA1700D4411D /* LoginViewModel.swift */; };
 		6582E83A23E1548A007F6B24 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6582E83923E1548A007F6B24 /* Alamofire */; };
+		6582E83E23E2C969007F6B24 /* RemoteImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6582E83D23E2C969007F6B24 /* RemoteImageURL.swift */; };
+		6582E84023E2CC17007F6B24 /* ImageViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6582E83F23E2CC17007F6B24 /* ImageViewContainer.swift */; };
+		6582E84223E2D372007F6B24 /* Gravatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6582E84123E2D372007F6B24 /* Gravatar.swift */; };
+		6582E84523E2E4A2007F6B24 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6582E84423E2E4A2007F6B24 /* CryptoSwift */; };
 		65C3BBF623DEAC7D00F35F2B /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BBF523DEAC7D00F35F2B /* DataSource.swift */; };
 		65C3BBF823DEB1CC00F35F2B /* EmployeeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BBF723DEB1CC00F35F2B /* EmployeeListViewModel.swift */; };
 		65C3BBFA23DEBB5A00F35F2B /* EmployeeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BBF923DEBB5A00F35F2B /* EmployeeRow.swift */; };
@@ -88,6 +92,9 @@
 		656DE23823D56BD300D4411D /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		656DE25123D577BA00D4411D /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		656DE25523D5EA1700D4411D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		6582E83D23E2C969007F6B24 /* RemoteImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageURL.swift; sourceTree = "<group>"; };
+		6582E83F23E2CC17007F6B24 /* ImageViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewContainer.swift; sourceTree = "<group>"; };
+		6582E84123E2D372007F6B24 /* Gravatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gravatar.swift; sourceTree = "<group>"; };
 		65C3BBF523DEAC7D00F35F2B /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		65C3BBF723DEB1CC00F35F2B /* EmployeeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewModel.swift; sourceTree = "<group>"; };
 		65C3BBF923DEBB5A00F35F2B /* EmployeeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeRow.swift; sourceTree = "<group>"; };
@@ -106,6 +113,7 @@
 			files = (
 				607B25901E27341D11C0A1AA /* Pods_Planner.framework in Frameworks */,
 				6582E83A23E1548A007F6B24 /* Alamofire in Frameworks */,
+				6582E84523E2E4A2007F6B24 /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +182,7 @@
 		656DE22123D56BBE00D4411D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6582E83B23E2C931007F6B24 /* ImageLoading */,
 				65C3BBF423DEAC5F00F35F2B /* DataSource */,
 				650A95D223D96B2B00E93768 /* AuthService */,
 				656DE22223D56BD300D4411D /* OpenAPIs */,
@@ -257,6 +266,16 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		6582E83B23E2C931007F6B24 /* ImageLoading */ = {
+			isa = PBXGroup;
+			children = (
+				6582E84123E2D372007F6B24 /* Gravatar.swift */,
+				6582E83D23E2C969007F6B24 /* RemoteImageURL.swift */,
+				6582E83F23E2CC17007F6B24 /* ImageViewContainer.swift */,
+			);
+			path = ImageLoading;
+			sourceTree = "<group>";
+		};
 		65C3BBF423DEAC5F00F35F2B /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +330,7 @@
 			name = Planner;
 			packageProductDependencies = (
 				6582E83923E1548A007F6B24 /* Alamofire */,
+				6582E84423E2E4A2007F6B24 /* CryptoSwift */,
 			);
 			productName = Planner;
 			productReference = 656DE20A23D56B6300D4411D /* Planner.app */;
@@ -342,6 +362,7 @@
 			mainGroup = 656DE20123D56B6300D4411D;
 			packageReferences = (
 				6582E83823E1548A007F6B24 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6582E84323E2E4A2007F6B24 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 			);
 			productRefGroup = 656DE20B23D56B6300D4411D /* Products */;
 			projectDirPath = "";
@@ -430,9 +451,11 @@
 				656DE24623D56BD300D4411D /* ReportsTo.swift in Sources */,
 				656DE20E23D56B6300D4411D /* AppDelegate.swift in Sources */,
 				656DE24723D56BD300D4411D /* ErrorModel.swift in Sources */,
+				6582E84023E2CC17007F6B24 /* ImageViewContainer.swift in Sources */,
 				656DE24023D56BD300D4411D /* EmployeeDepartment.swift in Sources */,
 				656DE24A23D56BD300D4411D /* JSONEncodingHelper.swift in Sources */,
 				656DE21023D56B6300D4411D /* SceneDelegate.swift in Sources */,
+				6582E84223E2D372007F6B24 /* Gravatar.swift in Sources */,
 				650A95D423D96B3E00E93768 /* AuthService.swift in Sources */,
 				656DE24223D56BD300D4411D /* EmployeeLocation.swift in Sources */,
 				656DE24B23D56BD300D4411D /* Models.swift in Sources */,
@@ -442,6 +465,7 @@
 				656DE21223D56B6400D4411D /* LoginView.swift in Sources */,
 				656DE23B23D56BD300D4411D /* DefaultAPI.swift in Sources */,
 				656DE24123D56BD300D4411D /* AuthorizedUser.swift in Sources */,
+				6582E83E23E2C969007F6B24 /* RemoteImageURL.swift in Sources */,
 				656DE24923D56BD300D4411D /* Extensions.swift in Sources */,
 				656B325223D9BE7B00170268 /* EmployeeList.swift in Sources */,
 				656DE23E23D56BD300D4411D /* APIs.swift in Sources */,
@@ -659,6 +683,14 @@
 				minimumVersion = 4.9.1;
 			};
 		};
+		6582E84323E2E4A2007F6B24 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -666,6 +698,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6582E83823E1548A007F6B24 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		6582E84423E2E4A2007F6B24 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6582E84323E2E4A2007F6B24 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

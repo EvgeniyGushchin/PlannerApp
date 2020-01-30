@@ -14,8 +14,8 @@ struct EmployeeRow: View {
     
     var body: some View {
         HStack {
-            Image("avatar")
-                .resizable()
+            ImageViewContainer(imageURL: urlForAvatar(),
+                defaultImage: UIImage(named: "avatar")!)
                 .frame(width: 60, height: 60)
             VStack(alignment: .leading, spacing: 7) {
                 Text(employee.fullName ?? "")
@@ -25,6 +25,10 @@ struct EmployeeRow: View {
             }
             Spacer()
         }
+    }
+    
+    func urlForAvatar() -> String {
+        return Gravatar(emailAddress: employee.email ?? "").url(size: 100).absoluteString
     }
 }
 
