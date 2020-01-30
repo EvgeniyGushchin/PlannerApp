@@ -17,6 +17,11 @@ struct EmployeeList: View {
         ZStack {
             NavigationView {
                 VStack {
+                    TextField("Search by name", text: $viewModel.username)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                        .padding()
                     List(viewModel.employees) { employee in
                         NavigationLink(
                             destination: EmployeeDetail(
@@ -47,7 +52,13 @@ struct EmployeeList: View {
 }
 
 struct EmployeeList_Previews: PreviewProvider {
+    
     static var previews: some View {
         EmployeeList()
+            .environmentObject(AuthService())
+            .environmentObject(EmployeeListViewModel(
+                authenticationService: AuthService(),
+                dataSource: SimpleDataSource(authToken: AuthService().token)
+            ))
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Combine
 
 final class EmployeeListViewModel: ObservableObject {
     
@@ -19,9 +19,21 @@ final class EmployeeListViewModel: ObservableObject {
     
     @Published var username = ""
     
+    private var worker: AnyCancellable? = nil
+    @Published private var originalEmployees: [Employee] = []
+    
     init(authenticationService: AuthService, dataSource: DataSourceProtocol) {
         self.authService = authenticationService
         self.dataSource = dataSource
+        
+        worker = Publishers.CombineLatest($username, $originalEmployees)
+            .sink(receiveValue: { [weak self] (searchname, employees) in
+                guard let strongSelf = self else {
+                    return
+                }
+                strongSelf.employees = strongSelf.filterEmployeesBy(username: searchname, employees: employees)
+            })
+            
     }
     
     func loadEmployees() {
@@ -30,7 +42,7 @@ final class EmployeeListViewModel: ObservableObject {
             self?.isRequesting = false
             switch result {
             case .success(let employees):
-                self?.employees = employees.filter { (employee) -> Bool in
+                self?.originalEmployees = employees.filter { (employee) -> Bool in
                     if let isActive = employee.isActive {
                         return isActive
                     }
@@ -45,7 +57,23 @@ final class EmployeeListViewModel: ObservableObject {
         }
     }
     
-    func handleError(error: Error) {
+    private func filterEmployeesBy(username: String, employees: [Employee]) -> [Employee] {
+        if username.count > 0 {
+            return employees.filter {
+                if let name = $0.fullName {
+                    return name.range(of: username, options: .caseInsensitive) != nil
+                }
+                else {
+                    return false
+                }
+            }
+        }
+        else {
+            return employees
+        }
+    }
+    
+    private func handleError(error: Error) {
         print(error)
         // TO DO: handle error
     }
