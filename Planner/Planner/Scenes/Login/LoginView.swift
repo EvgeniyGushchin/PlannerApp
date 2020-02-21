@@ -14,10 +14,13 @@ struct LoginView: View {
     
     var body: some View {
         ZStack {
+            Image("loginBackground")
+                .resizable()
             VStack {
                 Text("Planner")
-                    .foregroundColor(.blue)
-                    .font(.headline)
+                    .foregroundColor(.white)
+                    .font(.custom("KaushanScript-Regular", size: 48))
+
                 TextField("username", text: Binding<String>(
                     get: { self.viewModel.username },
                     set: { self.viewModel.username = $0 }
@@ -37,10 +40,12 @@ struct LoginView: View {
                     .disabled(!viewModel.isEnabled)
                 
             }
+            .offset(x: 0, y: -100)
             .padding()
             ActivityIndicator(shouldAnimate: viewModel.isRequesting)
         }
         .modifier(DismissingKeyboard())
+        .edgesIgnoringSafeArea([.top, .bottom])
     }
     
     var buttonColor: Color {

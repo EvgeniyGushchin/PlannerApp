@@ -53,6 +53,7 @@
 		65C3BBFF23DEFC9E00F35F2B /* PropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BBFE23DEFC9E00F35F2B /* PropertyView.swift */; };
 		65C3BC0123DF01D200F35F2B /* ClickablePropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BC0023DF01D200F35F2B /* ClickablePropertyView.swift */; };
 		65C3BC0323DF036E00F35F2B /* EmployeeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BC0223DF036E00F35F2B /* EmployeeDetailViewModel.swift */; };
+		65E827BA23FF931F00129D96 /* KaushanScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65E827B923FF92F400129D96 /* KaushanScript-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		65C3BBFE23DEFC9E00F35F2B /* PropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyView.swift; sourceTree = "<group>"; };
 		65C3BC0023DF01D200F35F2B /* ClickablePropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickablePropertyView.swift; sourceTree = "<group>"; };
 		65C3BC0223DF036E00F35F2B /* EmployeeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailViewModel.swift; sourceTree = "<group>"; };
+		65E827B923FF92F400129D96 /* KaushanScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KaushanScript-Regular.ttf"; sourceTree = "<group>"; };
 		6776614C4E6FD2AE2A53DA11 /* Pods-Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planner.debug.xcconfig"; path = "Target Support Files/Pods-Planner/Pods-Planner.debug.xcconfig"; sourceTree = "<group>"; };
 		994251BC82E5C5ADF0636A3D /* Pods-Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planner.release.xcconfig"; path = "Target Support Files/Pods-Planner/Pods-Planner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,9 +165,8 @@
 				656DE22123D56BBE00D4411D /* Services */,
 				656DE20D23D56B6300D4411D /* AppDelegate.swift */,
 				656DE20F23D56B6300D4411D /* SceneDelegate.swift */,
-				656DE21323D56B6700D4411D /* Assets.xcassets */,
-				656DE21823D56B6700D4411D /* LaunchScreen.storyboard */,
 				656DE21B23D56B6700D4411D /* Info.plist */,
+				65E827B823FF92DF00129D96 /* Resources */,
 				656DE21523D56B6700D4411D /* Preview Content */,
 			);
 			path = Planner;
@@ -293,6 +294,16 @@
 			path = EmployeeDetail;
 			sourceTree = "<group>";
 		};
+		65E827B823FF92DF00129D96 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				65E827B923FF92F400129D96 /* KaushanScript-Regular.ttf */,
+				656DE21323D56B6700D4411D /* Assets.xcassets */,
+				656DE21823D56B6700D4411D /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		E303B0B4B5E66E9D5E41AFEE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E827BA23FF931F00129D96 /* KaushanScript-Regular.ttf in Resources */,
 				656DE21A23D56B6700D4411D /* LaunchScreen.storyboard in Resources */,
 				656DE21723D56B6700D4411D /* Preview Assets.xcassets in Resources */,
 				656DE21423D56B6700D4411D /* Assets.xcassets in Resources */,
