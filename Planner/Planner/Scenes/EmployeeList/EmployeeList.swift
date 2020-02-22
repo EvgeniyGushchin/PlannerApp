@@ -34,21 +34,21 @@ struct EmployeeList: View {
                             EmployeeRow(employee: employee)
                         }
                     }
-                    Button(action: {
-                        self.authService.logout()
-                    }) {
-                        HStack {
-                            Spacer()
-                            Text("Logout")
-                                .font(.headline)
-                                .foregroundColor(Color.blue)
-                            Spacer()
-                        }
-                    }
-                    .padding()
                 }
                 .background(Color.white)
                 .navigationBarTitle(Text("Employees"))
+                .navigationBarItems(leading:
+                    Button(action: {
+                        self.authService.logout()
+                    }) {
+                        Image(systemName: "arrow.uturn.up")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                        Text("Logout")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                    }
+                )
                 ActivityIndicator(shouldAnimate: viewModel.isRequesting)
             }
         }
