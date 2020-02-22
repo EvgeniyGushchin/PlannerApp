@@ -55,6 +55,10 @@ final class EmployeeListViewModel: ObservableObject {
         }
     }
     
+    func onLogout() {
+        authService.logout()
+    }
+    
     private func filterEmployeesBy(username: String, employees: [Employee]) -> [Employee] {
         if username.count > 0 {
             return employees.filter {

@@ -10,7 +10,6 @@ import SwiftUI
 
 struct EmployeeList: View {
     
-    @EnvironmentObject var authService: AuthService
     @EnvironmentObject var viewModel: EmployeeListViewModel
     
     var body: some View {
@@ -39,7 +38,7 @@ struct EmployeeList: View {
                 .navigationBarTitle(Text("Employees"))
                 .navigationBarItems(leading:
                     Button(action: {
-                        self.authService.logout()
+                        self.viewModel.onLogout()
                     }) {
                         Image(systemName: "arrow.uturn.up")
                             .font(.headline)
@@ -68,7 +67,6 @@ struct EmployeeList_Previews: PreviewProvider {
     
     static var previews: some View {
         EmployeeList()
-            .environmentObject(AuthService())
             .environmentObject(EmployeeListViewModel(
                 authenticationService: AuthService(),
                 dataSource: SimpleDataSource(authToken: AuthService().token)

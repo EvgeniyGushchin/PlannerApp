@@ -18,7 +18,6 @@ struct AppRootView: View {
         SwiftUI.Group {
             if authService.isAuthorized {
                 EmployeeList()
-                    .environmentObject(authService)
                     .environmentObject(EmployeeListViewModel(
                         authenticationService: authService,
                         dataSource: SimpleDataSource(authToken: authService.token)
