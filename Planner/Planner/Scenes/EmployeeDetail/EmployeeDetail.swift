@@ -30,7 +30,7 @@ struct EmployeeDetail: View {
         .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
         .navigationBarTitle(Text("Employee"), displayMode: .inline)
     }
-    
+        
     func groupNameView() -> PropertyView? {
         if viewModel.group.count > 0 {
             return PropertyView(propertyName: ("Group").self, propertyValue: viewModel.group)

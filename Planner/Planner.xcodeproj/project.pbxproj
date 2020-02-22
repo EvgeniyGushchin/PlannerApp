@@ -54,6 +54,7 @@
 		65C3BC0123DF01D200F35F2B /* ClickablePropertyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BC0023DF01D200F35F2B /* ClickablePropertyView.swift */; };
 		65C3BC0323DF036E00F35F2B /* EmployeeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BC0223DF036E00F35F2B /* EmployeeDetailViewModel.swift */; };
 		65E827BA23FF931F00129D96 /* KaushanScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65E827B923FF92F400129D96 /* KaushanScript-Regular.ttf */; };
+		65E827BC23FFE3A700129D96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E827BB23FFE3A600129D96 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		65C3BC0023DF01D200F35F2B /* ClickablePropertyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickablePropertyView.swift; sourceTree = "<group>"; };
 		65C3BC0223DF036E00F35F2B /* EmployeeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailViewModel.swift; sourceTree = "<group>"; };
 		65E827B923FF92F400129D96 /* KaushanScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KaushanScript-Regular.ttf"; sourceTree = "<group>"; };
+		65E827BB23FFE3A600129D96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6776614C4E6FD2AE2A53DA11 /* Pods-Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planner.debug.xcconfig"; path = "Target Support Files/Pods-Planner/Pods-Planner.debug.xcconfig"; sourceTree = "<group>"; };
 		994251BC82E5C5ADF0636A3D /* Pods-Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planner.release.xcconfig"; path = "Target Support Files/Pods-Planner/Pods-Planner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -300,6 +302,7 @@
 				65E827B923FF92F400129D96 /* KaushanScript-Regular.ttf */,
 				656DE21323D56B6700D4411D /* Assets.xcassets */,
 				656DE21823D56B6700D4411D /* LaunchScreen.storyboard */,
+				65E827BB23FFE3A600129D96 /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				656DE24323D56BD300D4411D /* Group.swift in Sources */,
 				656DE25623D5EA1700D4411D /* LoginViewModel.swift in Sources */,
 				656DE23D23D56BD300D4411D /* JSONEncodableEncoding.swift in Sources */,
+				65E827BC23FFE3A700129D96 /* Constants.swift in Sources */,
 				656DE21223D56B6400D4411D /* LoginView.swift in Sources */,
 				656DE23B23D56BD300D4411D /* DefaultAPI.swift in Sources */,
 				656DE24123D56BD300D4411D /* AuthorizedUser.swift in Sources */,

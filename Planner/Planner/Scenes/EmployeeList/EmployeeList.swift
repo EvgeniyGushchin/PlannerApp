@@ -14,8 +14,11 @@ struct EmployeeList: View {
     @EnvironmentObject var viewModel: EmployeeListViewModel
     
     var body: some View {
-        ZStack {
-            NavigationView {
+        
+        NavigationView {
+            ZStack {
+                Color(AppColors.mainColor)
+                    .edgesIgnoringSafeArea(.top)
                 VStack {
                     TextField("Search by name", text: $viewModel.username)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -24,8 +27,8 @@ struct EmployeeList: View {
                         .padding()
                     List(viewModel.employees) { employee in
                         NavigationLink(
-                            destination: EmployeeDetail(
-                                viewModel: EmployeeDetailViewModel(employee: employee)
+                            destination: EmployeeDetail(viewModel:
+                                EmployeeDetailViewModel(employee: employee)
                         )) {
                             EmployeeRow(employee: employee)
                         }
@@ -41,13 +44,22 @@ struct EmployeeList: View {
                             Spacer()
                         }
                     }
+                .padding()
                 }
+                .background(Color.white)
                 .navigationBarTitle(Text("Employees"))
+                ActivityIndicator(shouldAnimate: viewModel.isRequesting)
             }
-            ActivityIndicator(shouldAnimate: viewModel.isRequesting)
-        }.onAppear {
+        }
+        .onAppear {
             self.viewModel.loadEmployees()
         }
+        
+    }
+    
+    init() {
+        UINavigationBar.appearance().backgroundColor = AppColors.mainColor
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     }
 }
 
