@@ -27,9 +27,10 @@ struct EmployeeList: View {
                         .padding()
                     List(viewModel.employees) { employee in
                         NavigationLink(
-                            destination: EmployeeDetail(viewModel:
-                                EmployeeDetailViewModel(employee: employee)
-                        )) {
+                            destination: LazyView(
+                                EmployeeDetail(viewModel: EmployeeDetailViewModel(employee: employee))
+                            )
+                        ) {
                             EmployeeRow(employee: employee)
                         }
                     }
@@ -44,7 +45,7 @@ struct EmployeeList: View {
                             Spacer()
                         }
                     }
-                .padding()
+                    .padding()
                 }
                 .background(Color.white)
                 .navigationBarTitle(Text("Employees"))

@@ -55,6 +55,7 @@
 		65C3BC0323DF036E00F35F2B /* EmployeeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C3BC0223DF036E00F35F2B /* EmployeeDetailViewModel.swift */; };
 		65E827BA23FF931F00129D96 /* KaushanScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65E827B923FF92F400129D96 /* KaushanScript-Regular.ttf */; };
 		65E827BC23FFE3A700129D96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E827BB23FFE3A600129D96 /* Constants.swift */; };
+		65E827BE240109DB00129D96 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E827BD240109DB00129D96 /* LazyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		65C3BC0223DF036E00F35F2B /* EmployeeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailViewModel.swift; sourceTree = "<group>"; };
 		65E827B923FF92F400129D96 /* KaushanScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KaushanScript-Regular.ttf"; sourceTree = "<group>"; };
 		65E827BB23FFE3A600129D96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		65E827BD240109DB00129D96 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		6776614C4E6FD2AE2A53DA11 /* Pods-Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planner.debug.xcconfig"; path = "Target Support Files/Pods-Planner/Pods-Planner.debug.xcconfig"; sourceTree = "<group>"; };
 		994251BC82E5C5ADF0636A3D /* Pods-Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planner.release.xcconfig"; path = "Target Support Files/Pods-Planner/Pods-Planner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,6 +247,7 @@
 				65C3BBF923DEBB5A00F35F2B /* EmployeeRow.swift */,
 				65C3BBFE23DEFC9E00F35F2B /* PropertyView.swift */,
 				65C3BC0023DF01D200F35F2B /* ClickablePropertyView.swift */,
+				65E827BD240109DB00129D96 /* LazyView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				65C3BC0323DF036E00F35F2B /* EmployeeDetailViewModel.swift in Sources */,
 				656DE23F23D56BD300D4411D /* EmployeeTitle.swift in Sources */,
 				65C3BC0123DF01D200F35F2B /* ClickablePropertyView.swift in Sources */,
+				65E827BE240109DB00129D96 /* LazyView.swift in Sources */,
 				656DE24523D56BD300D4411D /* InlineObject.swift in Sources */,
 				656B325423D9D65300170268 /* AppRootView.swift in Sources */,
 				650A95C923D6ECB600E93768 /* ActivityIndicator.swift in Sources */,
