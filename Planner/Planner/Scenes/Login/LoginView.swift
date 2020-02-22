@@ -49,7 +49,7 @@ struct LoginView: View {
     }
     
     var buttonColor: Color {
-        return viewModel.isEnabled ? .blue : .gray
+        return viewModel.isEnabled ? Color(AppColors.mainColor) : .gray
     }
 }
 
