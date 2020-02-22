@@ -14,9 +14,8 @@ struct EmployeeDetail: View {
     
     var body: some View {
         VStack {
-            Image("avatar")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            ImageViewContainer(imageURL: viewModel.urlForAvatar(),
+                               defaultImage: UIImage(named: "avatar")!)
                 .frame(width: 200, height: 200)
             Text(viewModel.fullName)
                 .font(.headline)

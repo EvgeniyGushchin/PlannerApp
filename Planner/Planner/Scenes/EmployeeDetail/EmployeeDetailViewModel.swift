@@ -47,6 +47,10 @@ final class EmployeeDetailViewModel {
         }
     }
     
+    func urlForAvatar() -> String {
+        return Gravatar(emailAddress: employee.email ?? "").url(size: 200).absoluteString
+    }
+    
     private func phoneNumber() -> URL? {
         
         let dash = CharacterSet(charactersIn: "-")
