@@ -1,16 +1,27 @@
 PODS:
+  - Realm (4.3.2):
+    - Realm/Headers (= 4.3.2)
+  - Realm/Headers (4.3.2)
+  - RealmSwift (4.3.2):
+    - Realm (= 4.3.2)
   - SwiftKeychainWrapper (3.4.0)
 
 DEPENDENCIES:
+  - RealmSwift
   - SwiftKeychainWrapper
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - SwiftKeychainWrapper
+  trunk:
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
+  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
+  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: c242af2e94cddaa72f5223371af2a8a6bdea61b0
+PODFILE CHECKSUM: 5935abe01ec8e1eb86aab0dfce9d5ca93d65a893
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.8.4

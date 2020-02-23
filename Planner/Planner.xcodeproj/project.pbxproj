@@ -56,6 +56,12 @@
 		65E827BA23FF931F00129D96 /* KaushanScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65E827B923FF92F400129D96 /* KaushanScript-Regular.ttf */; };
 		65E827BC23FFE3A700129D96 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E827BB23FFE3A600129D96 /* Constants.swift */; };
 		65E827BE240109DB00129D96 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E827BD240109DB00129D96 /* LazyView.swift */; };
+		65E827C22402404700129D96 /* AnyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E827C02402404700129D96 /* AnyRepository.swift */; };
+		65E827C32402404700129D96 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E827C12402404700129D96 /* Repository.swift */; };
+		65E827C52402424C00129D96 /* StorableEmployee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E827C42402424C00129D96 /* StorableEmployee.swift */; };
+		65E827C72402461D00129D96 /* StorableDepartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E827C62402461D00129D96 /* StorableDepartment.swift */; };
+		65E827CA2402463600129D96 /* StorableGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E827C92402463600129D96 /* StorableGroup.swift */; };
+		65E827CC24024A8900129D96 /* EmployeeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E827CB24024A8900129D96 /* EmployeeDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +114,12 @@
 		65E827B923FF92F400129D96 /* KaushanScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KaushanScript-Regular.ttf"; sourceTree = "<group>"; };
 		65E827BB23FFE3A600129D96 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		65E827BD240109DB00129D96 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		65E827C02402404700129D96 /* AnyRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyRepository.swift; sourceTree = "<group>"; };
+		65E827C12402404700129D96 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		65E827C42402424C00129D96 /* StorableEmployee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableEmployee.swift; sourceTree = "<group>"; };
+		65E827C62402461D00129D96 /* StorableDepartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableDepartment.swift; sourceTree = "<group>"; };
+		65E827C92402463600129D96 /* StorableGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorableGroup.swift; sourceTree = "<group>"; };
+		65E827CB24024A8900129D96 /* EmployeeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDataSource.swift; sourceTree = "<group>"; };
 		6776614C4E6FD2AE2A53DA11 /* Pods-Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planner.debug.xcconfig"; path = "Target Support Files/Pods-Planner/Pods-Planner.debug.xcconfig"; sourceTree = "<group>"; };
 		994251BC82E5C5ADF0636A3D /* Pods-Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Planner.release.xcconfig"; path = "Target Support Files/Pods-Planner/Pods-Planner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +199,7 @@
 		656DE22123D56BBE00D4411D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				65E827BF24023F7B00129D96 /* LocalRepository */,
 				6582E83B23E2C931007F6B24 /* ImageLoading */,
 				65C3BBF423DEAC5F00F35F2B /* DataSource */,
 				650A95D223D96B2B00E93768 /* AuthService */,
@@ -286,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				65C3BBF523DEAC7D00F35F2B /* DataSource.swift */,
+				65E827CB24024A8900129D96 /* EmployeeDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -308,6 +322,18 @@
 				65E827BB23FFE3A600129D96 /* Constants.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		65E827BF24023F7B00129D96 /* LocalRepository */ = {
+			isa = PBXGroup;
+			children = (
+				65E827C02402404700129D96 /* AnyRepository.swift */,
+				65E827C12402404700129D96 /* Repository.swift */,
+				65E827C42402424C00129D96 /* StorableEmployee.swift */,
+				65E827C62402461D00129D96 /* StorableDepartment.swift */,
+				65E827C92402463600129D96 /* StorableGroup.swift */,
+			);
+			path = LocalRepository;
 			sourceTree = "<group>";
 		};
 		E303B0B4B5E66E9D5E41AFEE /* Pods */ = {
@@ -411,16 +437,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Planner/Pods-Planner-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Planner/Pods-Planner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Planner/Pods-Planner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -481,19 +502,25 @@
 				656DE24323D56BD300D4411D /* Group.swift in Sources */,
 				656DE25623D5EA1700D4411D /* LoginViewModel.swift in Sources */,
 				656DE23D23D56BD300D4411D /* JSONEncodableEncoding.swift in Sources */,
+				65E827CA2402463600129D96 /* StorableGroup.swift in Sources */,
 				65E827BC23FFE3A700129D96 /* Constants.swift in Sources */,
 				656DE21223D56B6400D4411D /* LoginView.swift in Sources */,
+				65E827C32402404700129D96 /* Repository.swift in Sources */,
 				656DE23B23D56BD300D4411D /* DefaultAPI.swift in Sources */,
+				65E827CC24024A8900129D96 /* EmployeeDataSource.swift in Sources */,
 				656DE24123D56BD300D4411D /* AuthorizedUser.swift in Sources */,
 				6582E83E23E2C969007F6B24 /* RemoteImageURL.swift in Sources */,
+				65E827C72402461D00129D96 /* StorableDepartment.swift in Sources */,
 				656DE24923D56BD300D4411D /* Extensions.swift in Sources */,
 				656B325223D9BE7B00170268 /* EmployeeList.swift in Sources */,
 				656DE23E23D56BD300D4411D /* APIs.swift in Sources */,
+				65E827C52402424C00129D96 /* StorableEmployee.swift in Sources */,
 				65C3BBFF23DEFC9E00F35F2B /* PropertyView.swift in Sources */,
 				650A95CB23D74D2F00E93768 /* DismissingKeyboard.swift in Sources */,
 				656DE25223D577BA00D4411D /* RoundedButton.swift in Sources */,
 				656DE24823D56BD300D4411D /* Skill.swift in Sources */,
 				656DE24C23D56BD300D4411D /* Configuration.swift in Sources */,
+				65E827C22402404700129D96 /* AnyRepository.swift in Sources */,
 				65C3BBFD23DEF8B000F35F2B /* EmployeeDetail.swift in Sources */,
 				656DE24423D56BD300D4411D /* Employee.swift in Sources */,
 				65C3BBF823DEB1CC00F35F2B /* EmployeeListViewModel.swift in Sources */,
