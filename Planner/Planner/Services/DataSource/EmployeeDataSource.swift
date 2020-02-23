@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import Connectivity
 
 class EmployeeDataSource: DataSourceProtocol {
     
     private let localRepository: AnyRepository<Employee>
     private let authToken: String
+    private let connectivity = Connectivity()
     
     init(repo: AnyRepository<Employee>, authToken: String) {
         self.localRepository = repo
@@ -19,15 +21,18 @@ class EmployeeDataSource: DataSourceProtocol {
     }
     
     func loadEmployeesList(left: LeftStatus, completion: ((Result<[Employee], Error>) -> Void)?) {
-        loadFromNetwork { [weak self] result in
-            switch result {
-            case .success(let employees):
-                self?.saveEmployees(employees: employees)
-                return
-            case .failure(let error):
-                self?.handleError(error: error)
+        
+        checkConncetion { [weak self] isConnected in
+            if isConnected {
+                self?.loadFromNetwork(completion: completion)
             }
-            completion?(result)
+            else {
+                guard let employees = self?.loadFromDB() else {
+                    completion?(.failure(DataError.employeesLoadFailed))
+                    return
+                }
+                completion?(.success(employees))
+            }
         }
     }
     
@@ -35,25 +40,47 @@ class EmployeeDataSource: DataSourceProtocol {
         DefaultAPI.employees(
             authorization: authToken,
             status: "active",
-            _left: "no") { (list, error) in
+            _left: "no") { [weak self] (list, error) in
                 guard let emlpoyees = list else {
                     completion?(.failure(error ?? DataError.employeesLoadFailed))
                     return
                 }
+                self?.saveEmployees(employees: emlpoyees)
                 completion?(.success(emlpoyees))
         }
-    }
-    
-    private func saveEmployees(employees: [Employee]) {
-        
-    }
-    
-    private func loadFromDB() -> [Employee] {
-        return localRepository.getAll()
     }
     
     private func handleError(error: Error) {
         print(error)
         // TO DO: handle error
     }
+    
+    // MARK: - Connection Test
+    
+    private func checkConncetion(completion: @escaping ((Bool) -> Void)) {
+        
+        connectivity.checkConnectivity { connectivity in
+            
+            switch connectivity.status {
+            case .connected, .connectedViaWiFi, .connectedViaCellular:
+                completion(true)
+                break
+            case .connectedViaWiFiWithoutInternet, .connectedViaCellularWithoutInternet, .notConnected, .determining:
+                completion(false)
+                break
+            }
+        }
+    }
+    
+    // MARK: - Local Storage
+    
+    private func saveEmployees(employees: [Employee]) {
+        try? localRepository.bulkInsert(items: employees)
+    }
+    
+    private func loadFromDB() -> [Employee] {
+        return localRepository.getAll()
+    }
+    
+    
 }

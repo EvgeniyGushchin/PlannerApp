@@ -23,6 +23,7 @@ extension Employee: Entity {
         realmEmployee.isActive.value = isActive
         realmEmployee.isActiveEmployee.value = isActiveEmployee
         realmEmployee.group = group?.toStorable()
+        realmEmployee.employeeDepartment = employeeDepartment?.toStorable()
         return realmEmployee
     }
     
@@ -46,10 +47,10 @@ class StorableEmployee: Object, Storable {
     let isActiveEmployee = RealmOptional<Bool>()
     
     @objc dynamic var group: StorableGroup?
+    @objc dynamic var employeeDepartment: StorableEmployeeDepartment?
     
     //   @objc dynamic var reportsTo: ReportsTo? = nil
     //   @objc dynamic var employeeLocation: EmployeeLocation?
-    //   @objc dynamic var employeeDepartment: EmployeeDepartment?
     //   @objc dynamic var employeeTitle: EmployeeTitle?
     
     
@@ -57,7 +58,7 @@ class StorableEmployee: Object, Storable {
     {
         get {
             return Employee(
-                id: uuid.intValue ?? 0,
+                id: Int(uuid) ?? 0,
                 firstName: firstName,
                 lastName: lastName,
                 fullName: fullName,
@@ -69,7 +70,7 @@ class StorableEmployee: Object, Storable {
                 dateOfBirth: dateOfBirth,
                 reportsTo: nil,
                 employeeLocation: nil,
-                employeeDepartment: nil,
+                employeeDepartment: employeeDepartment?.model,
                 employeeTitle: nil,
                 group: group?.model
             )
@@ -77,6 +78,6 @@ class StorableEmployee: Object, Storable {
     }
     
     override static func primaryKey() -> String? {
-        return "id"
+        return "uuid"
     }
 }

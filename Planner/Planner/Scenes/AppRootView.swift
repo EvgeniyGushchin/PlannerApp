@@ -20,7 +20,7 @@ struct AppRootView: View {
                 EmployeeList()
                     .environmentObject(EmployeeListViewModel(
                         authenticationService: authService,
-                        dataSource: SimpleDataSource(authToken: authService.token)
+                        dataSource: EmployeeDataSource(repo: AnyRepository(), authToken: authService.token)
                     ))
             } else {
                 LoginView().environmentObject(LoginViewModel(authenticationService: authService))

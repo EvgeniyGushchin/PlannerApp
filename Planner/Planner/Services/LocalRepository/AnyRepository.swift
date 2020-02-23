@@ -39,7 +39,7 @@ class AnyRepository<RepositoryObject>: Repository
     func bulkInsert(items: [RepositoryObject]) throws {
         let realmItems = items.map { $0.toStorable() }
         try realm.write {
-            realm.add(realmItems)
+            realm.add(realmItems, update: .modified)
         }
     }
 

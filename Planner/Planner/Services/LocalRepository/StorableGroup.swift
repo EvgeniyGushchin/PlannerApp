@@ -30,11 +30,11 @@ class StorableGroup: Object, Storable {
     var model: Group
     {
         get {
-            return Group(id: uuid.intValue ?? 0, name: name)
+            return Group(id: Int(uuid) ?? 0, name: name)
         }
     }
     
     override static func primaryKey() -> String? {
-        return "id"
+        return "uuid"
     }
 }

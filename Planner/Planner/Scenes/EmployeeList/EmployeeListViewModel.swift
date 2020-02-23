@@ -40,7 +40,7 @@ final class EmployeeListViewModel: ObservableObject {
             self?.isRequesting = false
             switch result {
             case .success(let employees):
-                self?.originalEmployees = employees.filter { (employee) -> Bool in
+                let oEmployees = employees.filter { (employee) -> Bool in
                     if let isActive = employee.isActive {
                         return isActive
                     }
@@ -48,6 +48,7 @@ final class EmployeeListViewModel: ObservableObject {
                         return false
                     }
                 }
+                self?.originalEmployees = oEmployees
                 return
             case .failure(let error):
                 self?.handleError(error: error)
